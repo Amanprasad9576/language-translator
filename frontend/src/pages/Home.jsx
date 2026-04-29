@@ -153,7 +153,7 @@ export default function Home() {
         <section id="features" className="border-t border-slate-800/80 bg-slate-950/50 py-20">
           <div className="mx-auto max-w-6xl px-6">
             <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-3xl font-bold text-white md:text-4xl">Why VoiceLingua</h2>
+              <h2 className="text-3xl font-bold text-white md:text-4xl">Why Real language Translator</h2>
               <p className="mt-4 text-slate-400">
                 Everything you need for quick, spoken translation—without juggling multiple apps.
               </p>

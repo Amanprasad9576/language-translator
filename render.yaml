@@ -1,0 +1,17 @@
+# Render Blueprint: deploy the FastAPI backend as a Web Service.
+# In the Render dashboard: New → Blueprint → connect this repo, or create a Web Service manually using the same settings.
+#
+# After deploy, set on Vercel (frontend):
+#   VITE_API_BASE_URL=https://<your-service>.onrender.com
+
+services:
+  - type: web
+    name: realtime-translator-api
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.8"
