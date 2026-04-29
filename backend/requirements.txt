@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+gtts
+speechrecognition
+googletrans==3.1.0a0
+deep-translator

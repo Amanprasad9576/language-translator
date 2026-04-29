@@ -19,50 +19,34 @@ A voice recognition-based tool for translating languages in real-time. This tool
 
  ![diagram](docs/media/1-system-architeture.png)
 
-## 04 Setup
+## 04 Project Structure
 
-- **Step 01:** Navigate to the following directory.
-
-  ```
-   language-translator-bot/docs/requirements.txt
-  ```
-
-- **Step 02:** Run this command to install all dependencies.
-
-  ```
-   pip install -r requirements.txt
-  ```
-
-
+- `backend/` contains API and translation/TTS server code.
+- `frontend/` contains all React + Tailwind UI code.
 
 ## 05 Usage
 
-- **Step 01:** Install Python dependencies.
+- **Step 01:** Start backend from `backend/`.
 
   ```
-   pip install -r docs/requirements.txt
+   cd backend
+   pip install -r requirements.txt
+   uvicorn app:app --reload --host 127.0.0.1 --port 8000
   ```
 
-- **Step 02:** Start the backend API.
-
-  ```
-   uvicorn backend.app:app --reload --port 8000
-  ```
-
-- **Step 03:** Start the React + Tailwind frontend.
+- **Step 02:** Start frontend from `frontend/`.
 
   ```
    cd frontend
    cp .env.example .env
    npm install
-   npm run dev
+   npm run dev -- --port 5174
   ```
 
-- **Step 04:** Open the app in browser.
+- **Step 03:** Open the app in the browser.
 
-  ```
-   http://localhost:5173
-  ```
+  - Marketing home: `http://localhost:5174/`
+  - Translator app: `http://localhost:5174/translator`
 
 [2-demo-video.webm](https://github.com/gunarakulangunaretnam/language-translator-bot/assets/45822509/86a26bf0-0500-42e1-a626-497084cc7772)
 
