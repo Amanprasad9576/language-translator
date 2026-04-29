@@ -8,12 +8,9 @@ A voice recognition-based tool for translating languages in real-time. This tool
 
  ## 02 Technology Stack
 
- - Python (v3.8.5 Recommended)
- - GTTS Module
- - SpeechRecognition Module
- - Streamlit UI Module 
- - Pygame Module
- - Googletrans (v3.1.0a0 Recommended)
+ - **Frontend:** React, Vite, Tailwind CSS, Web Speech API (browser)
+ - **Backend:** Python, FastAPI, Uvicorn, gTTS, `googletrans`, `deep-translator` (fallback)
+ - **Docs assets:** `docs/media/` (banner, diagram, demo video link)
 
  ## 03 System Architeture Diagram
 
@@ -21,8 +18,10 @@ A voice recognition-based tool for translating languages in real-time. This tool
 
 ## 04 Project Structure
 
-- `backend/` contains API and translation/TTS server code.
-- `frontend/` contains all React + Tailwind UI code.
+- `backend/` — API and translation/TTS (`requirements.txt` lives here).
+- `frontend/` — React + Tailwind UI (`npm install` in this folder).
+- `docs/media/` — images and demo assets referenced in this README.
+- `research/` — optional language-pair experiment scripts (not used by the main app).
 
 ## 05 Usage
 
