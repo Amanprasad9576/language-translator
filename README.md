@@ -37,17 +37,31 @@ A voice recognition-based tool for translating languages in real-time. This tool
 
 ## 05 Usage
 
-- **Step 02:** Navigate to the source directory.
+- **Step 01:** Install Python dependencies.
 
   ```
-   language-translator-bot/soruce/main.py
+   pip install -r docs/requirements.txt
   ```
 
-
-- **Step 02:** Run this command to launch the app.
+- **Step 02:** Start the backend API.
 
   ```
-   streamlit run main.py
+   uvicorn backend.app:app --reload --port 8000
+  ```
+
+- **Step 03:** Start the React + Tailwind frontend.
+
+  ```
+   cd frontend
+   cp .env.example .env
+   npm install
+   npm run dev
+  ```
+
+- **Step 04:** Open the app in browser.
+
+  ```
+   http://localhost:5173
   ```
 
 [2-demo-video.webm](https://github.com/gunarakulangunaretnam/language-translator-bot/assets/45822509/86a26bf0-0500-42e1-a626-497084cc7772)
