@@ -120,6 +120,17 @@ function App() {
     }
   };
 
+  const prettyLanguage = (code) => {
+    const match = languages.find((item) => item.code === code);
+    if (!match) return code;
+    return match.name.charAt(0).toUpperCase() + match.name.slice(1);
+  };
+
+  const swapLanguages = () => {
+    setFromLanguage(toLanguage);
+    setToLanguage(fromLanguage);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 text-slate-100">
       <div className="mx-auto max-w-4xl px-6 py-12">
@@ -131,36 +142,60 @@ function App() {
             Speak in one language, get translated speech in another instantly.
           </p>
 
-          <div className="mt-8 grid gap-4 md:grid-cols-2">
-            <label className="space-y-2">
-              <span className="text-sm text-slate-300">Source Language</span>
+          <div className="mt-8 rounded-2xl border border-slate-800 bg-slate-950/60 p-4 md:p-5">
+            <div className="mb-4 flex items-center justify-between">
+              <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-300">
+                Language Selection
+              </h2>
+              <button
+                className="rounded-lg border border-indigo-400/40 bg-indigo-500/10 px-3 py-1.5 text-xs font-medium text-indigo-200 hover:bg-indigo-500/20"
+                onClick={swapLanguages}
+                type="button"
+              >
+                Swap Languages
+              </button>
+            </div>
+
+            <div className="grid gap-4 md:grid-cols-2">
+              <label className="space-y-2 rounded-xl border border-slate-800 bg-slate-900/70 p-3">
+                <span className="text-sm text-slate-300">Source Language</span>
               <select
-                className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-slate-100 focus:border-indigo-500 focus:outline-none"
+                className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-slate-100 shadow-inner shadow-indigo-950/40 focus:border-indigo-400 focus:outline-none"
                 value={fromLanguage}
                 onChange={(e) => setFromLanguage(e.target.value)}
               >
                 {languages.map((language) => (
                   <option key={language.code} value={language.code}>
-                    {language.name}
+                    {language.name.charAt(0).toUpperCase() + language.name.slice(1)}
                   </option>
                 ))}
               </select>
-            </label>
+              </label>
 
-            <label className="space-y-2">
-              <span className="text-sm text-slate-300">Target Language</span>
+              <label className="space-y-2 rounded-xl border border-slate-800 bg-slate-900/70 p-3">
+                <span className="text-sm text-slate-300">Target Language</span>
               <select
-                className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-slate-100 focus:border-indigo-500 focus:outline-none"
+                className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-slate-100 shadow-inner shadow-indigo-950/40 focus:border-indigo-400 focus:outline-none"
                 value={toLanguage}
                 onChange={(e) => setToLanguage(e.target.value)}
               >
                 {languages.map((language) => (
                   <option key={language.code} value={language.code}>
-                    {language.name}
+                    {language.name.charAt(0).toUpperCase() + language.name.slice(1)}
                   </option>
                 ))}
               </select>
-            </label>
+              </label>
+            </div>
+
+            <div className="mt-4 grid gap-3 text-sm md:grid-cols-2">
+              <div className="rounded-lg border border-emerald-500/25 bg-emerald-500/10 px-3 py-2 text-emerald-200">
+                Speaking In: <span className="font-semibold">{prettyLanguage(fromLanguage)}</span>
+              </div>
+              <div className="rounded-lg border border-indigo-500/25 bg-indigo-500/10 px-3 py-2 text-indigo-200">
+                Translating To: <span className="font-semibold">{prettyLanguage(toLanguage)}</span>
+              </div>
+            </div>
           </div>
 
           <div className="mt-6 flex flex-wrap gap-3">
