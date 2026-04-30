@@ -11,7 +11,7 @@ from gtts import gTTS
 from deep_translator import GoogleTranslator as DeepGoogleTranslator
 
 
-app = FastAPI(title="Real-Time Language Translator API")
+app = FastAPI(title="Real Time Language Translator API")
 translator = Translator()
 
 app.add_middleware(

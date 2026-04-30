@@ -144,7 +144,7 @@ export default function Translator() {
 
         <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-8 shadow-2xl backdrop-blur">
           <h1 className="text-3xl font-bold tracking-tight text-white">
-            Real-Time Language Translator
+            Real Time Language Translator
           </h1>
           <p className="mt-2 text-slate-400">
             Speak in one language, get translated speech in another instantly.

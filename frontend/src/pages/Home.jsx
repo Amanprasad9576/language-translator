@@ -68,7 +68,8 @@ export default function Home() {
         {/* Nav */}
         <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
           <span className="text-lg font-semibold tracking-tight text-white">
-            Voice<span className="text-indigo-400">Lingua</span>
+            Real Time{" "}
+            <span className="text-indigo-400">Language Translator</span>
           </span>
           <nav className="flex items-center gap-6 text-sm">
             <a href="#features" className="text-slate-400 transition hover:text-white">
@@ -153,7 +154,7 @@ export default function Home() {
         <section id="features" className="border-t border-slate-800/80 bg-slate-950/50 py-20">
           <div className="mx-auto max-w-6xl px-6">
             <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-3xl font-bold text-white md:text-4xl">Why Real language Translator</h2>
+              <h2 className="text-3xl font-bold text-white md:text-4xl">Why Real Time Language Translator</h2>
               <p className="mt-4 text-slate-400">
                 Everything you need for quick, spoken translation—without juggling multiple apps.
               </p>
@@ -225,7 +226,7 @@ export default function Home() {
         <footer className="border-t border-slate-800 py-10">
           <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 text-sm text-slate-500 md:flex-row">
             <span>
-              © {new Date().getFullYear()} VoiceLingua · Real-Time Language Translator
+              © {new Date().getFullYear()} Real Time Language Translator
             </span>
             <Link to="/translator" className="text-indigo-400 hover:text-indigo-300">
               Go to app →

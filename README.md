@@ -1,4 +1,4 @@
-# Real-Time Language Translator Bot
+# Real Time Language Translator
 
 ## 01 Introduction
 
