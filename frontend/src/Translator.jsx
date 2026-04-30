@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Link } from "react-router-dom";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://127.0.0.1:8000";
 
@@ -135,13 +134,6 @@ export default function Translator() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 text-slate-100">
       <div className="mx-auto max-w-4xl px-6 py-8">
-        <Link
-          to="/"
-          className="mb-6 inline-flex items-center gap-2 text-sm text-indigo-300 transition hover:text-indigo-200"
-        >
-          <span aria-hidden>←</span> Back to home
-        </Link>
-
         <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-8 shadow-2xl backdrop-blur">
           <h1 className="text-3xl font-bold tracking-tight text-white">
             Real Time Language Translator

@@ -65,28 +65,6 @@ export default function Home() {
       </div>
 
       <div className="relative">
-        {/* Nav */}
-        <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
-          <span className="text-lg font-semibold tracking-tight text-white">
-            Real Time{" "}
-            <span className="text-indigo-400">Language Translator</span>
-          </span>
-          <nav className="flex items-center gap-6 text-sm">
-            <a href="#features" className="text-slate-400 transition hover:text-white">
-              Features
-            </a>
-            <a href="#how" className="text-slate-400 transition hover:text-white">
-              How it works
-            </a>
-            <Link
-              to="/translator"
-              className="rounded-full bg-indigo-500 px-4 py-2 font-medium text-white shadow-lg shadow-indigo-500/25 transition hover:bg-indigo-400"
-            >
-              Open app
-            </Link>
-          </nav>
-        </header>
-
         {/* Hero */}
         <section className="mx-auto max-w-6xl px-6 pb-20 pt-8 md:pt-12">
           <div className="mx-auto max-w-3xl text-center">
