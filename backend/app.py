@@ -8,6 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from googletrans import LANGUAGES, Translator
 from gtts import gTTS
+from gtts.lang import tts_langs
 from deep_translator import GoogleTranslator as DeepGoogleTranslator
 
 
@@ -60,6 +61,17 @@ def health():
 @app.get("/languages")
 def get_languages():
     return [{"code": code, "name": name} for code, name in LANGUAGES.items()]
+
+
+@app.get("/target-languages")
+def get_target_languages():
+    supported_tts_codes = set(tts_langs().keys())
+    target_languages = [
+        {"code": code, "name": name}
+        for code, name in LANGUAGES.items()
+        if code in supported_tts_codes
+    ]
+    return sorted(target_languages, key=lambda item: item["name"])
 
 
 @app.post("/translate-speak")

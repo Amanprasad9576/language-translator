@@ -3,7 +3,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://127.0.0.1:8000";
 
 export default function Translator() {
-  const [languages, setLanguages] = useState([]);
+  const [supportedLanguages, setSupportedLanguages] = useState([]);
   const [fromLanguage, setFromLanguage] = useState("en");
   const [toLanguage, setToLanguage] = useState("ta");
   const [isListening, setIsListening] = useState(false);
@@ -21,11 +21,16 @@ export default function Translator() {
   );
 
   useEffect(() => {
-    fetch(`${API_BASE_URL}/languages`)
+    fetch(`${API_BASE_URL}/target-languages`)
       .then((res) => res.json())
       .then((data) => {
-        const sorted = data.sort((a, b) => a.name.localeCompare(b.name));
-        setLanguages(sorted);
+        setSupportedLanguages(data);
+        if (!data.some((language) => language.code === toLanguage) && data.length > 0) {
+          setToLanguage(data[0].code);
+        }
+        if (!data.some((language) => language.code === fromLanguage) && data.length > 0) {
+          setFromLanguage(data[0].code);
+        }
       })
       .catch(() => setErrorText("Unable to fetch languages from backend."));
   }, []);
@@ -121,14 +126,16 @@ export default function Translator() {
   };
 
   const prettyLanguage = (code) => {
-    const match = languages.find((item) => item.code === code);
+    const match = supportedLanguages.find((item) => item.code === code);
     if (!match) return code;
     return match.name.charAt(0).toUpperCase() + match.name.slice(1);
   };
 
   const swapLanguages = () => {
     setFromLanguage(toLanguage);
-    setToLanguage(fromLanguage);
+    if (supportedLanguages.some((language) => language.code === fromLanguage)) {
+      setToLanguage(fromLanguage);
+    }
   };
 
   return (
@@ -164,7 +171,7 @@ export default function Translator() {
                   value={fromLanguage}
                   onChange={(e) => setFromLanguage(e.target.value)}
                 >
-                  {languages.map((language) => (
+                  {supportedLanguages.map((language) => (
                     <option key={language.code} value={language.code}>
                       {language.name.charAt(0).toUpperCase() + language.name.slice(1)}
                     </option>
@@ -179,7 +186,7 @@ export default function Translator() {
                   value={toLanguage}
                   onChange={(e) => setToLanguage(e.target.value)}
                 >
-                  {languages.map((language) => (
+                  {supportedLanguages.map((language) => (
                     <option key={language.code} value={language.code}>
                       {language.name.charAt(0).toUpperCase() + language.name.slice(1)}
                     </option>
